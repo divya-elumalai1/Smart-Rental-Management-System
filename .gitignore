@@ -1,0 +1,33 @@
+# Compiled class files
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# Build
+dist/
+build/
+
+# Dependencies
+node_modules/
+.mvn/
+
+# Database
+*.db
+*.sqlite

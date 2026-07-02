@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Request Update</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7fc; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); padding: 32px 24px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 24px; font-weight: 600; }
+        .header .subtitle { color: rgba(255,255,255,0.85); margin-top: 8px; font-size: 14px; }
+        .body { padding: 32px 24px; color: #374151; }
+        .body .greeting { font-size: 16px; font-weight: 500; color: #1a365d; }
+        .body p { line-height: 1.7; margin: 0 0 16px 0; font-size: 15px; }
+        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+        .status-pending { background: #fef3c7; color: #92400e; }
+        .status-in_progress { background: #dbeafe; color: #1e40af; }
+        .status-resolved { background: #d1fae5; color: #065f46; }
+        .status-cancelled { background: #f3f4f6; color: #6b7280; }
+        .update-box { background: #ecfeff; border-radius: 8px; padding: 20px; border: 1px solid #a5f3fc; margin: 20px 0; }
+        .update-box .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #cffafe; font-size: 14px; }
+        .update-box .detail-row:last-child { border-bottom: none; }
+        .update-box .detail-label { color: #6b7280; }
+        .update-box .detail-value { font-weight: 500; color: #374151; }
+        .notes-box { background: #f9fafb; border-radius: 8px; padding: 16px; margin: 16px 0; border-left: 4px solid #06b6d4; }
+        .notes-box .notes-label { font-size: 12px; color: #6b7280; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .notes-box .notes-content { font-size: 14px; color: #374151; line-height: 1.6; }
+        .footer { padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer p { margin: 4px 0; font-size: 12px; color: #9ca3af; }
+        .footer .brand { font-weight: 600; color: #6b7280; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Maintenance Status Update</h1>
+                <div class="subtitle">Smart Rental Management - Sapthagiri Residency</div>
+            </div>
+            <div class="body">
+                <p class="greeting">Hello <span th:text="${firstName}">Tenant</span>,</p>
+                <p>There is an update on your maintenance request:</p>
+                <div class="update-box">
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <span class="status-badge" th:classappend="${'status-' + status.toLowerCase()}" th:text="${status}">IN PROGRESS</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Request ID</span>
+                        <span class="detail-value" th:text="${requestId}">REQ-001</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Title</span>
+                        <span class="detail-value" th:text="${title}">Leaking Faucet</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">New Status</span>
+                        <span class="detail-value" th:text="${status}">IN_PROGRESS</span>
+                    </div>
+                </div>
+                <div class="notes-box" th:if="${notes != null and !notes.isEmpty()}">
+                    <div class="notes-label">Notes from the team:</div>
+                    <div class="notes-content" th:text="${notes}">Our technician has been assigned and will visit your unit shortly.</div>
+                </div>
+                <p>Thank you for your patience. You can track the full status in your tenant dashboard.</p>
+            </div>
+            <div class="footer">
+                <p class="brand">Sapthagiri Residency</p>
+                <p>Bengaluru, Karnataka, India</p>
+                <p>&copy; 2026 Sapthagiri Residency. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

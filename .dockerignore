@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Build outputs
+target/
+*.jar
+*.war
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (frontend)
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-compose.yml
+.dockerignore
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Test reports
+test-output/
+surefire-reports/

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Request Submitted</title>
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7fc; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .card { background: #ffffff; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); padding: 32px 24px; text-align: center; }
+        .header h1 { color: #ffffff; margin: 0; font-size: 24px; font-weight: 600; }
+        .header .subtitle { color: rgba(255,255,255,0.85); margin-top: 8px; font-size: 14px; }
+        .body { padding: 32px 24px; color: #374151; }
+        .body .greeting { font-size: 16px; font-weight: 500; color: #1a365d; }
+        .body p { line-height: 1.7; margin: 0 0 16px 0; font-size: 15px; }
+        .request-box { background: #f5f3ff; border-radius: 8px; padding: 20px; border: 1px solid #ddd6fe; margin: 20px 0; }
+        .request-box .icon { text-align: center; font-size: 48px; margin-bottom: 8px; }
+        .request-box .detail-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ede9fe; font-size: 14px; }
+        .request-box .detail-row:last-child { border-bottom: none; }
+        .request-box .detail-label { color: #6b7280; }
+        .request-box .detail-value { font-weight: 500; color: #374151; }
+        .footer { padding: 24px; text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer p { margin: 4px 0; font-size: 12px; color: #9ca3af; }
+        .footer .brand { font-weight: 600; color: #6b7280; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Maintenance Request Received</h1>
+                <div class="subtitle">Smart Rental Management - Sapthagiri Residency</div>
+            </div>
+            <div class="body">
+                <p class="greeting">Hello <span th:text="${firstName}">Tenant</span>,</p>
+                <p>Your maintenance request has been submitted successfully. Our team will review it and get back to you shortly.</p>
+                <div class="request-box">
+                    <div class="icon">🔧</div>
+                    <div style="margin-top: 12px;">
+                        <div class="detail-row">
+                            <span class="detail-label">Request ID</span>
+                            <span class="detail-value" th:text="${requestId}">REQ-001</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Title</span>
+                            <span class="detail-value" th:text="${title}">Leaking Faucet</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Property</span>
+                            <span class="detail-value" th:text="${propertyName}">Unit 101</span>
+                        </div>
+                    </div>
+                </div>
+                <p>You will receive updates on the status of your request via email. You can also track it in your tenant dashboard.</p>
+            </div>
+            <div class="footer">
+                <p class="brand">Sapthagiri Residency</p>
+                <p>Bengaluru, Karnataka, India</p>
+                <p>&copy; 2026 Sapthagiri Residency. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

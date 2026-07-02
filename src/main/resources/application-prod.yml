@@ -1,0 +1,35 @@
+# ===========================================
+# Production-specific overrides
+# ===========================================
+
+server:
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+
+# Logging
+logging:
+  level:
+    com.smartrental: WARN
+    org.springframework.security: WARN
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# Email verification required in production
+app:
+  auth:
+    skip-email-verification: false
+  rate-limit:
+    max-requests: 50
+    window-seconds: 60

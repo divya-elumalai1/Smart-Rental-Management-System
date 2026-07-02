@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ===========================================
+   Smart Rental Management — Premium Dark System
+   Glassmorphism Dark • 2026 Design
+   =========================================== */
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Brand glows */
+  --color-brand-indigo: #6366F1;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-cyan: #06B6D4;
+
+  /* Semantic */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  /* Dark surfaces */
+  --color-bg: #020617;
+  --color-surface: #0F172A;
+  --color-card: rgba(255,255,255,0.03);
+  --color-border: rgba(255,255,255,0.08);
+
+  /* Text */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+}
+
+/* ===========================================
+   Base
+   =========================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #020617;
+  color: #F8FAFC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Tabular numbers for stats */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===========================================
+   Glassmorphism
+   =========================================== */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================================
+   Glow Effects
+   =========================================== */
+.glow-indigo {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+.glow-success {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+.glow-warning {
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+.glow-danger {
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+/* Glow on hover */
+.glow-hover {
+  transition: box-shadow 0.3s ease;
+}
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+/* ===========================================
+   Gradient text
+   =========================================== */
+.gradient-text {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-indigo {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===========================================
+   Floating Orbs Background
+   =========================================== */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb-purple {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: orbFloat1 20s ease-in-out infinite;
+}
+
+.orb-cyan {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+  top: 10%;
+  right: -100px;
+  animation: orbFloat2 25s ease-in-out infinite;
+}
+
+.orb-indigo {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  bottom: -200px;
+  left: 30%;
+  animation: orbFloat3 30s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(80px, 60px); }
+  66% { transform: translate(-40px, 100px); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-60px, 80px); }
+  66% { transform: translate(40px, -50px); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(100px, -80px); }
+}
+
+/* ===========================================
+   Subtle grid overlay
+   =========================================== */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+/* ===========================================
+   Shimmer skeleton loading
+   =========================================== */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.5s infinite;
+}
+
+@keyframes shimmerMove {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===========================================
+   Button shimmer sweep
+   =========================================== */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+.btn-shimmer:hover::after {
+  left: 100%;
+}
+
+/* ===========================================
+   Status badge pulse
+   =========================================== */
+.pulse-success {
+  animation: pulseGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+.pulse-warning {
+  animation: pulseGlow 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+.pulse-danger {
+  animation: pulseGlow 1.5s ease-in-out infinite, shake 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+/* ===========================================
+   Custom scrollbar (dark)
+   =========================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===========================================
+   Selection
+   =========================================== */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #F8FAFC;
+}
+
+/* ===========================================
+   Input focus glow
+   =========================================== */
+.input-glow:focus {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
